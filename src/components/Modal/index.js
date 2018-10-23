@@ -20,25 +20,23 @@ class Modal extends React.Component {
     return(
       <div className="transparent-container">
         <div className="modal">
-          <form>
-            <h4 className="modal-title">Add Item</h4>
-            <input value={value} onChange={this.onChange} />
-            <div className="buttons-container">
-              <button
-                className="btn cancel-btn"
-                onClick={onClose}
-              >
-                Cancel
-              </button>
-              <button
-                className={`btn add-btn ${value === '' && 'disabled'}`}
-                disabled={value === ''}
-                onClick={this.onSubmit}
-              >
-                Add
-              </button>
-            </div>
-          </form>
+          <h4 className="modal-title">Add Item</h4>
+          <input value={value} onChange={this.onChange} />
+          <div className="buttons-container">
+            <button
+              className="btn cancel-btn"
+              onClick={onClose}
+            >
+              Cancel
+            </button>
+            <button
+              className={`btn add-btn ${value === '' && 'disabled'}`}
+              disabled={value === ''}
+              onClick={this.onSubmit}
+            >
+              Add
+            </button>
+          </div>
         </div>
       </div>
     )
