@@ -1,0 +1,17 @@
+.transparent-container{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    margin-top: -50px;
+    z-index:99;
+    background-color: rgba(245,245,245,0.7);
+}
+
+.modal {
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    padding: 16px 22px;
+    max-width: 400px;
+    margin: 80px auto;
+}
