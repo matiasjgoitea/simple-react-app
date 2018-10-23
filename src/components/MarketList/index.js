@@ -1,13 +1,16 @@
 import React from 'react'
 import Modal from '../Modal'
+import { getItems } from '../../api'
 import './index.css'
 
 export default class MarketList extends React.Component {
   state = {
-    items: JSON.parse(localStorage.getItem('marketList')) || [],
+    items: [],
     isModalOpen: false
   }
-
+  componentDidMount() {
+    getItems().then(items => this.setState({ items }))
+  }
   saveItems = items => {
     localStorage.setItem('marketList', JSON.stringify(items))
     this.setState({ items })
