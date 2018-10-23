@@ -36,22 +36,23 @@ export default class MarketList extends React.Component {
         {
           isModalOpen && <Modal onClose={this.toggleModal} onAdd={this.addItem} />
         }
-        <div>
         <p className="items-count">{items.length} Items</p>
+        {
+          items.length === 0 && <h3>List is empty</h3>
+        }
         <ul className="items-container">
           {
             items.map((item, index) => (
               <li key={index}>
                 <div className="item">
                   <p className="item-name">{item}</p>
-                  <a className="cross-btn" name={index} onClick={this.removeItem}>x</a>
+                  <button className="btn cross-btn" name={index} onClick={this.removeItem}>x</button>
                 </div>
               </li>
             ))
           }
         </ul>
-        <button className="red-btn" onClick={this.toggleModal}>Add Item</button>
-      </div>
+        <button className="btn blue-btn" onClick={this.toggleModal}>Add Item</button>
       </div>
     )
   }

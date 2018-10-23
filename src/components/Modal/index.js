@@ -9,7 +9,8 @@ class Modal extends React.Component {
   onChange = ({ target: { value } }) => {
     this.setState({ value })
   }
-  onAdd = () => {
+  onSubmit = e => {
+    e.preventDefault()
     this.props.onAdd(this.state.value)
     this.props.onClose()
   }
@@ -19,25 +20,25 @@ class Modal extends React.Component {
     return(
       <div className="transparent-container">
         <div className="modal">
-        <form>
-          <h4 className="modal-title">Add Item</h4>
-          <input value={value} onChange={this.onChange} />
-        </form>
-          <div className="buttons-container">
-            <button
-              className="cancel-button"
-              onClick={onClose}
-            >
-              Cancel
-            </button>
-            <button
-              className={`add-button ${value === '' && 'disabled'}`}
-              onClick={this.onAdd}
-              disabled={value === ''}
-            >
-              Add
-            </button>
-          </div>  
+          <form>
+            <h4 className="modal-title">Add Item</h4>
+            <input value={value} onChange={this.onChange} />
+            <div className="buttons-container">
+              <button
+                className="btn cancel-btn"
+                onClick={onClose}
+              >
+                Cancel
+              </button>
+              <button
+                className={`btn add-btn ${value === '' && 'disabled'}`}
+                disabled={value === ''}
+                onClick={this.onSubmit}
+              >
+                Add
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     )
@@ -45,7 +46,7 @@ class Modal extends React.Component {
 }
 
 Modal.propTypes = {
-  addItem: PropTypes.func.isRequired,
+  onAdd: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired
 }
 
