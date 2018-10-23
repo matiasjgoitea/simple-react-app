@@ -10,7 +10,8 @@ class Modal extends React.Component {
     this.setState({ value })
   }
   onAdd = () => {
-    this.props.addItem(this.state.value)
+    this.props.onAdd(this.state.value)
+    this.props.onClose()
   }
   render () {
     const { value } = this.state;

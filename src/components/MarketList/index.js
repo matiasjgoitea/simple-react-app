@@ -4,12 +4,12 @@ import './index.css'
 
 export default class MarketList extends React.Component {
   state = {
-    items: JSON.parse(localStorage.getItem('todoList')) || [],
+    items: JSON.parse(localStorage.getItem('marketList')) || [],
     isModalOpen: false
   }
 
   saveItems = items => {
-    localStorage.setItem('todoList', JSON.stringify(items))
+    localStorage.setItem('marketList', JSON.stringify(items))
     this.setState({ items })
   }
 
